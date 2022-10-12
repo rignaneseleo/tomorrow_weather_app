@@ -17,7 +17,7 @@ class Weather {
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
         data: Data.fromJson(json["data"]),
         warnings: List<Warning>.from(
-            json["warnings"].map((x) => Warning.fromJson(x))),
+            (json["warnings"] ?? []).map((x) => Warning.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
